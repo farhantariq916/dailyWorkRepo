@@ -8,8 +8,14 @@ import 'cardPractice.dart';
 import 'constrainedBoxPractice.dart';
 import 'expensionPanelPractice.dart';
 import 'fittedBoxPractice.dart';
+import 'flowPractice.dart';
+import 'fractionallySizedBox.dart';
+import 'gridViewPractice.dart';
+import 'indexedStackPractice.dart';
+import 'stackPractice.dart';
+import 'intrinsicHeight.dart';
 void main() {
-  runApp(FittedBoxPractice());
+  runApp(FractionallySizedBoxPractice());
 }
 
 
