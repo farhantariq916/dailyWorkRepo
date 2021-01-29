@@ -14,8 +14,11 @@ import 'gridViewPractice.dart';
 import 'indexedStackPractice.dart';
 import 'stackPractice.dart';
 import 'intrinsicHeight.dart';
+import 'streamBuilderPractice.dart';
+import 'futureBuilderPractice.dart';
+import 'splashScreen.dart';
 void main() {
-  runApp(FractionallySizedBoxPractice());
+  runApp(SplashScreenPractice());
 }
 
 
