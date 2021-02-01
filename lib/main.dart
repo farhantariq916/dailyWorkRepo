@@ -17,8 +17,11 @@ import 'intrinsicHeight.dart';
 import 'streamBuilderPractice.dart';
 import 'futureBuilderPractice.dart';
 import 'splashScreen.dart';
+import 'fetchDataPractice.dart';
+import 'fetchData1.dart';
+
 void main() {
-  runApp(SplashScreenPractice());
+  runApp(FetchDataPractice1());
 }
 
 
