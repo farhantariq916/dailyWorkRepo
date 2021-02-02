@@ -63,7 +63,7 @@ class _FetchDataPractice1State extends State<FetchDataPractice1>{
               print(snapshot.connectionState);
               print(snapshot.data);
               if(snapshot.hasData){
-                return Text(snapshot.data.firstName);
+                return Text(snapshot.data.id.toString());
               } else if(snapshot.hasError){
                 return Text("$snapshot.error");
               }

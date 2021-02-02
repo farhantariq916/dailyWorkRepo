@@ -21,6 +21,7 @@ class _TextFieldPracticeState extends State<TextFieldPractice> {
           child: Padding(
             padding: EdgeInsets.all(10.0),
             child: TextField(
+
               autofocus: true,
               keyboardType: TextInputType.emailAddress,
               textInputAction: TextInputAction.done,

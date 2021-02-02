@@ -19,9 +19,13 @@ import 'futureBuilderPractice.dart';
 import 'splashScreen.dart';
 import 'fetchDataPractice.dart';
 import 'fetchData1.dart';
+import 'fetchData2.dart';
+import 'deleteData.dart';
+import 'sendData.dart';
+import 'updateData.dart';
 
 void main() {
-  runApp(FetchDataPractice1());
+  runApp(UpdateData());
 }
 
 
