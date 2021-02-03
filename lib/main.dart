@@ -23,9 +23,11 @@ import 'fetchData2.dart';
 import 'deleteData.dart';
 import 'sendData.dart';
 import 'updateData.dart';
+import 'updateDataFlutterDev.dart';
+import 'parseJsonData.dart';
 
 void main() {
-  runApp(UpdateData());
+  runApp(ParseJsonData());
 }
 
 

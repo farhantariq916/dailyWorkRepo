@@ -4,30 +4,39 @@ import 'dart:convert';
 import 'dart:async';
 
 
-Album albumFromJson(String str) => Album.fromJson(json.decode(str));
 
-String albumToJson(Album data) => json.encode(data.toJson());
 
 Future<Album> fetchAlbum() async{
-  final response = await http.get("https://reqres.in/api/users");
+  final response = await http.get("https://reqres.in/api/users/2");
 
   if(response.statusCode==200){
+    print("status code ok");
+    print(response.body);
     return albumFromJson(response.body);
+
   }
   else{
     throw Exception("Failed to load album");
   }
 }
 
-Future<Album> updateAlbum(String name,String jobTitle) async{
-  final response =await http.put("https://reqres.in/api/users",
+Future<Album> updateAlbum(String firstName1,String lastName1) async{
+  print("ok");
+  final http.Response response =await http.put("https://reqres.in/api/users/2",
       headers: <String,String>{'Content-Type':'application/json; charset=UTF-8'},
       body: jsonEncode(<String,String>{
-        "name":name,
-        "job" :jobTitle,
+        "firstName":firstName1,
+        "lastName" :lastName1,
       }));
+      print("ok2");
+      print(response.body);
       if(response.statusCode==200){
+        print("ok3");
+        print(response.body);
+
+
         return albumFromJson(response.body);
+
       }else{
         throw Exception("Failed to update album");
 
@@ -38,31 +47,79 @@ Future<Album> updateAlbum(String name,String jobTitle) async{
 
 
 
+
+Album albumFromJson(String str) => Album.fromJson(json.decode(str));
+
+String albumToJson(Album data) => json.encode(data.toJson());
+
 class Album {
   Album({
-    this.name,
-    this.job,
-    this.id,
-    this.createdAt,
+    this.data,
+    this.support,
   });
 
-  String name;
-  String job;
-  String id;
-  DateTime createdAt;
+  final Data data;
+  final Support support;
 
   factory Album.fromJson(Map<String, dynamic> json) => Album(
-    name: json["name"],
-    job: json["job"],
-    id: json["id"],
-    createdAt: DateTime.parse(json["createdAt"]),
+    data: Data.fromJson(json["data"]),
+    support: Support.fromJson(json["support"]),
   );
 
   Map<String, dynamic> toJson() => {
-    "name": name,
-    "job": job,
-    "id": id,
-    "createdAt": createdAt.toIso8601String(),
+    "data": data.toJson(),
+    "support": support.toJson(),
   };
 }
 
+class Data {
+  Data({
+    this.id,
+    this.email,
+    this.firstName,
+    this.lastName,
+    this.avatar,
+  });
+
+  final int id;
+  final String email;
+  final String firstName;
+  final String lastName;
+  final String avatar;
+
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
+    id: json["id"],
+    email: json["email"],
+    firstName: json["first_name"],
+    lastName: json["last_name"],
+    avatar: json["avatar"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "email": email,
+    "first_name": firstName,
+    "last_name": lastName,
+    "avatar": avatar,
+  };
+}
+
+class Support {
+  Support({
+    this.url,
+    this.text,
+  });
+
+  final String url;
+  final String text;
+
+  factory Support.fromJson(Map<String, dynamic> json) => Support(
+    url: json["url"],
+    text: json["text"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "url": url,
+    "text": text,
+  };
+}
