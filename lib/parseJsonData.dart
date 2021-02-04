@@ -12,16 +12,21 @@ class ParseJsonData extends StatefulWidget{
 
 class _ParseJsonDataState extends State<ParseJsonData>{
   List<User> _users;
+  Future<List<User>> listUser;
   bool _loading;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+    print("Init ok");
     _loading = true;
     Services.getUsers().then((users){
       setState(() {
+        print(users);
         _users=users;
         _loading = false;
+        print("Set state ok");
       });
     });
   }
@@ -34,13 +39,13 @@ class _ParseJsonDataState extends State<ParseJsonData>{
         ),
         body: Container(
           child: ListView.builder(
-            itemCount:_users==null? 0:_users.length,
+            itemCount:_users==null ? 0 : _users.length,
             itemBuilder: (context,index){
               print("ok");
               User user = _users[index];
               return ListTile(
-                title: Text(user.name),
-                subtitle: Text(user.email),
+                title: Text(_users[index].title),
+                subtitle: Text(user.body),
 
               );
 

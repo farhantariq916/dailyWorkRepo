@@ -25,10 +25,15 @@ import 'sendData.dart';
 import 'updateData.dart';
 import 'updateDataFlutterDev.dart';
 import 'parseJsonData.dart';
+import 'drawerPractice.dart';
+import 'drawerCookbook.dart';
+import 'animateWidgetPractice.dart';
+import 'navigateToNewAndBack.dart';
+import 'navigationNamedRoutes.dart';
+import 'passArgumentsToNamedRoute.dart';
+import 'fetchAndSendData.dart';
 
-void main() {
-  runApp(ParseJsonData());
-}
-
-
-
+// void main() {
+//   runApp(MyApp());
+// }
+void main() => runApp(FetchAndSend());
